@@ -110,7 +110,7 @@ public class CupsGetPrintersOperation extends IppOperation {
           } else if (attr.getName().equals("sides-default")) {
             sidesDefault = getAttributeValue(attr);
           } else if (attr.getName().equals("printer-state")) {
-            printerState = PrinterStateEnum.fromStringInteger(getAttributeValue(attr));
+            printerState = PrinterStateEnum.fromString(getAttributeValue(attr));
           }
         }
         URL printerUrl = null;
@@ -157,6 +157,7 @@ public class CupsGetPrintersOperation extends IppOperation {
     return values;
   }
 
+  @Override
   protected String getAttributeValue(Attribute attr) {
     String result = null;
     if (attr.getAttributeValue() != null && attr.getAttributeValue().size() > 0) {

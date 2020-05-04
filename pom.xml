@@ -4,7 +4,7 @@
 
   <groupId>org.cups4j</groupId>
   <artifactId>cups4j</artifactId>
-  <version>0.7.7-SNAPSHOT</version>
+  <version>0.7.7.SACTA.1</version>
   <packaging>jar</packaging>
 
   <name>cups4j</name>
@@ -34,13 +34,13 @@
   </scm>
 
   <distributionManagement>
-    <snapshotRepository>
+    <!-- <snapshotRepository>
       <id>ossrh-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
+    </snapshotRepository> -->
     <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>slmaven.indra.es.nexus</id>
+      <url>${ci_repos}/repositories/ATMITEC_NSPV_ThirdParty</url>
     </repository>
   </distributionManagement>
 
@@ -52,7 +52,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>4.10</version>
       <scope>test</scope>
     </dependency>
 
@@ -92,6 +92,7 @@
       <groupId>com.jgoodies</groupId>
       <artifactId>jgoodies-forms</artifactId>
       <version>1.7.1</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -123,6 +124,16 @@
             <!--manifest> <addClasspath>true</addClasspath> <classpathPrefix>lib/</classpathPrefix> <mainClass>org.cups4j.client.Cups</mainClass> 
               </manifest -->
           </archive>
+
+		<source>1.6</source>
+		<target>1.6</target>
+		<encoding>ISO-8859-1</encoding>
+		<fork>true</fork>
+		<executable>${env.JAVA6_HOME}/bin/javac</executable>
+		<compilerVersion>1.6</compilerVersion>
+		<meminitial>128m</meminitial>
+		<maxmem>512m</maxmem>
+
         </configuration>
       </plugin>
 
@@ -140,7 +151,7 @@
         </executions>
       </plugin>
 
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.0.0</version>
@@ -151,12 +162,12 @@
               <goal>jar</goal>
             </goals>
             <configuration>
-              <!-- See profile for JDK8 -->
+              See profile for JDK8
               <additionalparam>-Xdoclint:none</additionalparam>
             </configuration>
           </execution>
         </executions>
-      </plugin>
+      </plugin> -->
 
     </plugins>
   </build>

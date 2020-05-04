@@ -31,7 +31,9 @@ public class CupsClientTest {
     List<CupsPrinter> printers = client.getPrinters();
 
     for (CupsPrinter printer : printers) {
-      LOG.info("printer: " + printer.getName() + "[isClass=" + printer.isPrinterClass() + "]");
+      LOG.info(
+    		  "printer: " + printer.getName() + "[isClass=" + printer.isPrinterClass()
+    		  	+ ", state=" + printer.getState() + "]");
     }
 
     assertFalse(printers.isEmpty());

@@ -44,4 +44,15 @@ public enum PrinterStateEnum {
         }
         return null;
     }
+
+    public static PrinterStateEnum fromString(String value) {
+        if (value != null) {
+            for (PrinterStateEnum printerState : PrinterStateEnum.values()) {
+                if (value.equalsIgnoreCase(printerState.getStateName())) {
+                    return printerState;
+                }
+            }
+        }
+        return null;
+    }
 }

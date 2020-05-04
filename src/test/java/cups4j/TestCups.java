@@ -1,10 +1,10 @@
 package cups4j;
 
+import java.util.List;
+
 import org.cups4j.CupsClient;
 import org.cups4j.CupsPrinter;
 import org.junit.Test;
-
-import java.util.List;
 
 public class TestCups {
   @Test
